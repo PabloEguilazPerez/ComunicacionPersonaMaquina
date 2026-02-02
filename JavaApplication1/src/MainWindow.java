@@ -26,51 +26,145 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        j_label_book_title = new javax.swing.JLabel();
+        j_button_buscar = new javax.swing.JButton();
+        j_textfield_nombre_libro = new javax.swing.JTextField();
+        j_menu_file = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenu4 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        Titles = new javax.swing.JRadioButtonMenuItem();
+        Authors = new javax.swing.JRadioButtonMenuItem();
+        All = new javax.swing.JRadioButtonMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Practica 1");
 
-        jLabel1.setText("Book title:");
+        j_label_book_title.setText("Book title:");
 
-        jButton1.setText("Search");
+        j_button_buscar.setText("Search");
+        j_button_buscar.setNextFocusableComponent(j_textfield_nombre_libro);
+
+        j_textfield_nombre_libro.setNextFocusableComponent(j_button_buscar);
+
+        jMenu2.setText("File");
+
+        jMenuItem1.setText("New Search");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+        jMenu2.add(jSeparator1);
+
+        jMenuItem2.setText("Exit");
+        jMenu2.add(jMenuItem2);
+
+        j_menu_file.add(jMenu2);
+
+        jMenu3.setText("Search");
+
+        jMenuItem3.setText("Search Now");
+        jMenu3.add(jMenuItem3);
+        jMenu3.add(jSeparator2);
+
+        jMenu4.setText("Search Options");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Include Out Print");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jCheckBoxMenuItem1);
+
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("Match Case");
+        jMenu4.add(jCheckBoxMenuItem2);
+        jMenu4.add(jSeparator3);
+
+        buttonGroup1.add(Titles);
+        Titles.setSelected(true);
+        Titles.setText("Titles");
+        Titles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TitlesActionPerformed(evt);
+            }
+        });
+        jMenu4.add(Titles);
+
+        buttonGroup1.add(Authors);
+        Authors.setText("Authors");
+        jMenu4.add(Authors);
+
+        buttonGroup1.add(All);
+        All.setText("All");
+        jMenu4.add(All);
+
+        jMenu3.add(jMenu4);
+
+        j_menu_file.add(jMenu3);
+
+        jMenu1.setText("Help");
+
+        jMenuItem4.setText("About");
+        jMenu1.add(jMenuItem4);
+
+        j_menu_file.add(jMenu1);
+
+        setJMenuBar(j_menu_file);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)))
+                .addGap(57, 57, 57)
+                .addComponent(j_label_book_title)
+                .addGap(18, 18, 18)
+                .addComponent(j_textfield_nombre_libro, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(j_button_buscar)
                 .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jButton1)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(119, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(j_label_book_title)
+                    .addComponent(j_button_buscar)
+                    .addComponent(j_textfield_nombre_libro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(135, 135, 135))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    private void TitlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitlesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TitlesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,9 +202,26 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JRadioButtonMenuItem All;
+    private javax.swing.JRadioButtonMenuItem Authors;
+    private javax.swing.JRadioButtonMenuItem Titles;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JButton j_button_buscar;
+    private javax.swing.JLabel j_label_book_title;
+    private javax.swing.JMenuBar j_menu_file;
+    private javax.swing.JTextField j_textfield_nombre_libro;
     // End of variables declaration//GEN-END:variables
 }
