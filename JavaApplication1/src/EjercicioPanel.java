@@ -28,8 +28,23 @@ public class EjercicioPanel extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel4 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ejercicio paneles");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -37,6 +52,54 @@ public class EjercicioPanel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jTabbedPane1.addTab("Informacion", jScrollPane1);
+
+        jPanel1.setLayout(new java.awt.GridLayout(3, 1, 0, 20));
+
+        jButton1.setText("Género");
+        jPanel1.add(jButton1);
+
+        jButton2.setText("Ficción");
+        jPanel1.add(jButton2);
+
+        jButton3.setText("Biografía");
+        jPanel1.add(jButton3);
+
+        jSplitPane2.setLeftComponent(jPanel1);
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Harry Potter", "El Señor de los Anillos" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList1);
+
+        jSplitPane2.setRightComponent(jScrollPane3);
+
+        jTabbedPane1.addTab("Catálogo", jSplitPane2);
+
+        jPanel2.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(32767, 70));
+
+        jLabel1.setText("Selecciona Libro");
+        jPanel3.add(jLabel1);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Harry Potter", "El seño de los Anillos" }));
+        jPanel3.add(jComboBox1);
+
+        jPanel2.add(jPanel3);
+
+        jButton4.setText("Prestar");
+        jPanel4.add(jButton4);
+
+        jButton5.setText("Devolver");
+        jButton5.setDefaultCapable(false);
+        jButton5.setEnabled(false);
+        jPanel4.add(jButton5);
+
+        jPanel2.add(jPanel4);
+
+        jTabbedPane1.addTab("Prestar/Devolver", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,7 +157,21 @@ public class EjercicioPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
