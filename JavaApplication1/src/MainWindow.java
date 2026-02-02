@@ -30,6 +30,10 @@ public class MainWindow extends javax.swing.JFrame {
         j_label_book_title = new javax.swing.JLabel();
         j_button_buscar = new javax.swing.JButton();
         j_textfield_nombre_libro = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        j_label_book_title1 = new javax.swing.JLabel();
+        j_textfield_nombre_libro1 = new javax.swing.JTextField();
+        j_button_buscar1 = new javax.swing.JButton();
         j_menu_file = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -57,6 +61,17 @@ public class MainWindow extends javax.swing.JFrame {
         j_button_buscar.setNextFocusableComponent(j_textfield_nombre_libro);
 
         j_textfield_nombre_libro.setNextFocusableComponent(j_button_buscar);
+
+        j_label_book_title1.setText("Book title:");
+        jPanel1.add(j_label_book_title1);
+
+        j_textfield_nombre_libro1.setNextFocusableComponent(j_button_buscar);
+        j_textfield_nombre_libro1.setPreferredSize(new java.awt.Dimension(120, 30));
+        jPanel1.add(j_textfield_nombre_libro1);
+
+        j_button_buscar1.setText("Search");
+        j_button_buscar1.setNextFocusableComponent(j_textfield_nombre_libro);
+        jPanel1.add(j_button_buscar1);
 
         jMenu2.setText("File");
 
@@ -133,22 +148,27 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(j_label_book_title)
-                .addGap(18, 18, 18)
-                .addComponent(j_textfield_nombre_libro, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(j_button_buscar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(j_label_book_title)
+                        .addGap(18, 18, 18)
+                        .addComponent(j_textfield_nombre_libro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(j_button_buscar)))
                 .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
+                .addContainerGap(179, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(j_label_book_title)
                     .addComponent(j_button_buscar)
                     .addComponent(j_textfield_nombre_libro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(135, 135, 135))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -216,12 +236,16 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JButton j_button_buscar;
+    private javax.swing.JButton j_button_buscar1;
     private javax.swing.JLabel j_label_book_title;
+    private javax.swing.JLabel j_label_book_title1;
     private javax.swing.JMenuBar j_menu_file;
     private javax.swing.JTextField j_textfield_nombre_libro;
+    private javax.swing.JTextField j_textfield_nombre_libro1;
     // End of variables declaration//GEN-END:variables
 }
