@@ -41,6 +41,7 @@ public class PaintPanel extends JPanel {
         // Ejemplo de figura geométrica fija (Requisito extra de Req 4;3) 
         g.setColor(Color.RED);
         g.drawRect(5, 5, 20, 20); // Un pequeño cuadrado decorativo
+        g.fillOval(25, 25, 10, 10);
     }
     
     public void limpiar() {

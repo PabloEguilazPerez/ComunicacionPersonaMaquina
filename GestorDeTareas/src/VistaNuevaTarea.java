@@ -21,8 +21,8 @@ public class VistaNuevaTarea extends javax.swing.JDialog { // Cambiado de JFrame
         initComponents();
         this.setLocationRelativeTo(null);
         PaintPanel miPanelDibujo = new PaintPanel();
-miPanelDibujo.setPreferredSize(new java.awt.Dimension(200, 100));
-datos_input.add(miPanelDibujo); // Lo añadimos al contenedor de tus inputs
+        miPanelDibujo.setPreferredSize(new java.awt.Dimension(200, 100));
+        datos_input.add(miPanelDibujo); // Lo añadimos al contenedor de tus inputs
     }
     
     // Req (4;2) Método para devolver el valor a la ventana que lo invoca

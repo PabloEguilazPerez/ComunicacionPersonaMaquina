@@ -271,8 +271,7 @@ modeloGlobalTareas.addElement(new Tarea(
 
     //Req (2;3)
     private void menu_file_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_file_borrarActionPerformed
-        // TODO add your handling code here:      
-        
+        // TODO add your handling code here:           
         modeloGlobalTareas.clear();
         
     }//GEN-LAST:event_menu_file_borrarActionPerformed
