@@ -1,3 +1,7 @@
+
+import Models.Tarea;
+import javax.swing.DefaultListModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,13 +11,54 @@
  *
  * @author pablo
  */
+
 public class VistaPrincipal extends javax.swing.JFrame {
+    
+    public static DefaultListModel<Tarea> modeloGlobalTareas = new DefaultListModel<>();
+    
+    private VistaDetalleTarea vistaDetalle = null;
 
     /**
      * Creates new form VistaPrincipal
      */
     public VistaPrincipal() {
         initComponents();
+       
+        // 1. Tarea de trabajo
+modeloGlobalTareas.addElement(new Tarea(
+    "Finalizar informe de ventas", 
+    "Alta", 
+    "Trabajo", 
+    "Revisar gráficas del cuarto trimestre.",
+    true
+));
+
+// 2. Tarea de hogar
+modeloGlobalTareas.addElement(new Tarea(
+    "Comprar víveres", 
+    "Media", 
+    "Hogar", 
+    "Leche, huevos y pan."
+));
+
+// 3. Tarea personal
+modeloGlobalTareas.addElement(new Tarea(
+    "Llamar al dentista", 
+    "Baja", 
+    "Personal", 
+    "Pedir cita para limpieza anual.",
+    true
+));
+
+// 4. Tarea de estudio
+modeloGlobalTareas.addElement(new Tarea(
+    "Repasar Swing", 
+    "Alta", 
+    "Estudio", 
+    "Practicar JList y DefaultListModel."
+));
+        
+
     }
 
     /**
@@ -30,32 +75,28 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lista_tareas = new javax.swing.JList<>();
         menu_bar = new javax.swing.JMenuBar();
         menu_file = new javax.swing.JMenu();
         menu_file_nuevo = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menu_file_borrar = new javax.swing.JMenuItem();
         menu_editar = new javax.swing.JMenu();
         menu_editar_vista = new javax.swing.JMenu();
         jRadioButtonMenuVerTodas = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuVerIncompletas = new javax.swing.JRadioButtonMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        mostrar_descripcion = new javax.swing.JCheckBoxMenuItem();
+        mostrar_prioridad = new javax.swing.JCheckBoxMenuItem();
+        mostrar_categoria = new javax.swing.JCheckBoxMenuItem();
+        ver_ejemplo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestor de tareas");
 
-        jPanel1.setLayout(new java.awt.GridLayout(4, 1));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel4.setPreferredSize(new java.awt.Dimension(39399, 20));
+        jPanel4.setPreferredSize(new java.awt.Dimension(39399, 40));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
@@ -63,58 +104,45 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Gestor de tareas");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 449, 40));
 
-        jPanel1.add(jPanel4);
+        jPanel1.add(jPanel4, java.awt.BorderLayout.NORTH);
 
-        jLabel3.setText("Nombre:");
-        jPanel2.add(jLabel3);
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 10));
+        jScrollPane2.setForeground(new java.awt.Color(242, 242, 242));
+        jScrollPane2.setMaximumSize(null);
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(120, 23));
-        jPanel2.add(jTextField2);
-
-        jPanel1.add(jPanel2);
-
-        jLabel4.setText("Fecha (dd/MM/yyyy):");
-        jPanel3.add(jLabel4);
-
-        jTextField3.setPreferredSize(new java.awt.Dimension(120, 23));
-        jTextField3.setRequestFocusEnabled(false);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+        lista_tareas.setModel(modeloGlobalTareas);
+        lista_tareas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lista_tareasMouseClicked(evt);
             }
         });
-        jPanel3.add(jTextField3);
+        jScrollPane2.setViewportView(lista_tareas);
 
-        jPanel1.add(jPanel3);
+        jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton1);
-
-        jPanel1.add(jPanel5);
-
-        menu_file.setText("File");
+        menu_file.setText("Archivo");
 
         menu_file_nuevo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menu_file_nuevo.setText("Nuevo");
-        menu_file.add(menu_file_nuevo);
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Guardar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menu_file_nuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menu_file_nuevoActionPerformed(evt);
             }
         });
-        menu_file.add(jMenuItem1);
+        menu_file.add(menu_file_nuevo);
+
+        menu_file_borrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menu_file_borrar.setText("Borrar");
+        menu_file_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_file_borrarActionPerformed(evt);
+            }
+        });
+        menu_file.add(menu_file_borrar);
 
         menu_bar.add(menu_file);
 
-        menu_editar.setText("Edit");
+        menu_editar.setText("Editar");
 
         menu_editar_vista.setText("Vista");
 
@@ -138,25 +166,42 @@ public class VistaPrincipal extends javax.swing.JFrame {
         menu_editar_vista.add(jRadioButtonMenuVerIncompletas);
         menu_editar_vista.add(jSeparator1);
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Mostrar nombre");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mostrar_descripcion.setSelected(true);
+        mostrar_descripcion.setText("Mostrar descipcion");
+        mostrar_descripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
+                mostrar_descripcionActionPerformed(evt);
             }
         });
-        menu_editar_vista.add(jCheckBoxMenuItem1);
+        menu_editar_vista.add(mostrar_descripcion);
 
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Mostrar fecha");
-        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mostrar_prioridad.setSelected(true);
+        mostrar_prioridad.setText("Mostrar prioridad");
+        mostrar_prioridad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem2ActionPerformed(evt);
+                mostrar_prioridadActionPerformed(evt);
             }
         });
-        menu_editar_vista.add(jCheckBoxMenuItem2);
+        menu_editar_vista.add(mostrar_prioridad);
+
+        mostrar_categoria.setSelected(true);
+        mostrar_categoria.setText("Mostrar categoria");
+        mostrar_categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrar_categoriaActionPerformed(evt);
+            }
+        });
+        menu_editar_vista.add(mostrar_categoria);
 
         menu_editar.add(menu_editar_vista);
+
+        ver_ejemplo.setText("Ejemplo");
+        ver_ejemplo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ver_ejemploActionPerformed(evt);
+            }
+        });
+        menu_editar.add(ver_ejemplo);
 
         menu_bar.add(menu_editar);
 
@@ -176,33 +221,121 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void actualizarVista() {
+        lista_tareas.repaint();
+    }
+    
     private void jRadioButtonMenuVerTodasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuVerTodasActionPerformed
         // TODO add your handling code here:
+        lista_tareas.setModel(modeloGlobalTareas);
     }//GEN-LAST:event_jRadioButtonMenuVerTodasActionPerformed
 
     private void jRadioButtonMenuVerIncompletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuVerIncompletasActionPerformed
         // TODO add your handling code here:
+        DefaultListModel<Tarea> modeloFiltrado = new DefaultListModel<>();
+
+        for (int i = 0; i < modeloGlobalTareas.size(); i++) {
+            Tarea t = modeloGlobalTareas.getElementAt(i);
+            if (!t.isCompletada()) {
+                modeloFiltrado.addElement(t);
+            }
+        }
+
+        lista_tareas.setModel(modeloFiltrado);
+        
     }//GEN-LAST:event_jRadioButtonMenuVerIncompletasActionPerformed
 
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+    private void mostrar_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_descripcionActionPerformed
+        // TODO add your handling code here:  
+        boolean mostrar = this.mostrar_descripcion.isSelected();
+    
+        for (int i = 0; i < modeloGlobalTareas.size(); i++) {
+            modeloGlobalTareas.getElementAt(i).setMostrarDescripcion(mostrar);
+        }
 
-    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
+        actualizarVista();
+        
+    }//GEN-LAST:event_mostrar_descripcionActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    private void mostrar_prioridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_prioridadActionPerformed
+        // TODO add your handling code here:        
+        boolean mostrar = this.mostrar_prioridad.isSelected();
+    
+        for (int i = 0; i < modeloGlobalTareas.size(); i++) {
+            modeloGlobalTareas.getElementAt(i).setMostrarPrioridad(mostrar);
+        }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        actualizarVista();
+        
+    }//GEN-LAST:event_mostrar_prioridadActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    //Req (2;3)
+    private void menu_file_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_file_borrarActionPerformed
+        // TODO add your handling code here:      
+        
+        modeloGlobalTareas.clear();
+        
+    }//GEN-LAST:event_menu_file_borrarActionPerformed
+
+    //Req (2;3)
+    private void menu_file_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_file_nuevoActionPerformed
+        // TODO add your handling code here:        
+        // Corregimos la instanciación: pasamos 'this' y 'true'
+        VistaNuevaTarea vistaNuevaTarea = new VistaNuevaTarea(this, true);
+
+        // La ejecución se detiene aquí hasta que el usuario cierre el diálogo
+        vistaNuevaTarea.setVisible(true); 
+
+        // Req (4;2) Utilizamos el valor de retorno para procesar los datos 
+        Tarea nueva = vistaNuevaTarea.getTareaCreada();
+        if (nueva != null) {
+            modeloGlobalTareas.addElement(nueva);
+        }        
+    }//GEN-LAST:event_menu_file_nuevoActionPerformed
+
+    private void mostrar_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_categoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        
+        boolean mostrar = this.mostrar_categoria.isSelected();
+    
+        for (int i = 0; i < modeloGlobalTareas.size(); i++) {
+            modeloGlobalTareas.getElementAt(i).setMostrarCategoria(mostrar);
+        }
+
+        actualizarVista();
+    }//GEN-LAST:event_mostrar_categoriaActionPerformed
+
+    private void lista_tareasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lista_tareasMouseClicked
+        // TODO add your handling code here:
+        int index = lista_tareas.locationToIndex(evt.getPoint());
+    
+        if (index != -1) {
+            Tarea tareaSeleccionada = modeloGlobalTareas.getElementAt(index);
+
+            // Si la ventana no ha sido creada o fue cerrada/recolectada
+            if (vistaDetalle == null || !vistaDetalle.isVisible()) {
+                vistaDetalle = new VistaDetalleTarea(tareaSeleccionada);
+                vistaDetalle.setVisible(true);
+            } else {
+                // SI YA EXISTE: No creamos una nueva, usamos un método para refrescarla
+                // Nota: Deberás crear el método 'setTarea' en tu clase VistaDetalleTarea
+                vistaDetalle.setTarea(tareaSeleccionada); 
+                vistaDetalle.toFront(); // La trae al frente si estaba detrás
+                vistaDetalle.repaint();
+            }
+        }
+    }//GEN-LAST:event_lista_tareasMouseClicked
+
+    private void ver_ejemploActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_ejemploActionPerformed
+        // TODO add your handling code here:
+        
+        VistaEjemploLista ejemplo = new VistaEjemploLista();
+        
+        ejemplo.setVisible(true);
+        
+        ejemplo.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_ver_ejemploActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,27 +375,23 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupEditVistaMostrar;
     private javax.swing.ButtonGroup buttonGroupPrioridadTarea;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuVerIncompletas;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuVerTodas;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JList<Tarea> lista_tareas;
     private javax.swing.JMenuBar menu_bar;
     private javax.swing.JMenu menu_editar;
     private javax.swing.JMenu menu_editar_vista;
     private javax.swing.JMenu menu_file;
+    private javax.swing.JMenuItem menu_file_borrar;
     private javax.swing.JMenuItem menu_file_nuevo;
+    private javax.swing.JCheckBoxMenuItem mostrar_categoria;
+    private javax.swing.JCheckBoxMenuItem mostrar_descripcion;
+    private javax.swing.JCheckBoxMenuItem mostrar_prioridad;
+    private javax.swing.JMenuItem ver_ejemplo;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/pablo/NetBeansProjects/GestorDeTareas/src/VistaPrincipal.java</file>
+            <file>file:/Users/pablo/git/Universidad/ComunicacionPersonaMaquina/GestorDeTareas/src/VistaPrincipal.java</file>
+            <file>file:/Users/pablo/git/Universidad/ComunicacionPersonaMaquina/GestorDeTareas/src/VistaNuevaTarea.java</file>
+            <file>file:/Users/pablo/git/Universidad/ComunicacionPersonaMaquina/GestorDeTareas/src/VistaEjemploLista.java</file>
+            <file>file:/Users/pablo/git/Universidad/ComunicacionPersonaMaquina/GestorDeTareas/src/Models/Tarea.java</file>
+            <file>file:/Users/pablo/git/Universidad/ComunicacionPersonaMaquina/GestorDeTareas/src/VistaDetalleTarea.java</file>
+            <file>file:/Users/pablo/git/Universidad/ComunicacionPersonaMaquina/GestorDeTareas/src/PaintPanel.java</file>
         </group>
     </open-files>
 </project-private>
