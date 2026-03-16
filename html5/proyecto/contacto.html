@@ -1,0 +1,74 @@
+<!DOCTYPE html> <!--ReqH1-->
+<html lang="es-ES">
+
+<head>
+    <meta charset="utf-8"> <!--ReqH2-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--ReqH2-->
+    <title>Contacto</title>
+    <meta name="author" content="Pablo Eguilaz"> <!--ReqH2-->
+    <meta name="description" content="Formulario de contacto"> <!--ReqH2-->
+    <meta name="keywords" content="contacto, recetas"> <!--ReqH2-->
+</head>
+
+<body>
+
+    <header>
+        <h1>Contacto</h1>
+    </header>
+
+    <nav> <!--ReqH8-->
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="receta_tortilla.html">Receta</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+
+            <h2>Envíanos tu receta</h2>
+
+            <form name="formulario_recetas" method="post" action="mailto:ejemplo@email.com"> <!--ReqH16-->
+
+                <label for="nombre">Nombre:</label> <!--ReqH17-->
+                <input type="text" id="nombre" name="nombre" required>
+
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <br><br>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password">
+
+                <br><br>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required> <!--ReqH18-->
+
+                <br><br>
+
+                <label for="mensaje">Tu receta:</label>
+                <textarea id="mensaje" name="mensaje"></textarea>
+
+                <br><br>
+
+                <button type="submit">Enviar</button> <!--ReqH19-->
+                <button type="reset">Reset</button> <!--ReqH19-->
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Recetas Caseras</p>
+    </footer>
+
+</body>
+
+</html>
