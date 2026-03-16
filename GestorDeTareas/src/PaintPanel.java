@@ -23,6 +23,7 @@ public class PaintPanel extends JPanel {
                 repaint(); // Forzamos al panel a redibujarse
             }
         });
+        
     }
 
     // Req (4;3) Sobrescribir el método paint para renderizar figuras 
